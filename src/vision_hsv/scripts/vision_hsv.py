@@ -30,7 +30,7 @@ class cvBridgeDemo():
         rospy.on_shutdown(self.cleanup)  # 当ros关闭时对opencv进行清理
         self.bridge = CvBridge()
         # 订阅usb_cam发布的图像topic, 当得到数据类型为Image的图像时调用对于回调函数image_callback
-        self.image_sub = rospy.Subscriber("/usb_cam/image_raw", Image, self.image_callback)
+        self.image_sub = rospy.Subscriber("/camera/color/image_raw", Image, self.image_callback)
         # 每30ms执行一次show_img_cb，用于刷新显示窗口中的图像
         rospy.Timer(rospy.Duration(0.03), self.show_img_cb)
 
